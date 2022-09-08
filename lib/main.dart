@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shareleaks/item_card.dart';
 
 import 'item_card_data.dart';
-import 'item_card_layout_grid.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,20 +38,60 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: GridView.count(
-          childAspectRatio: .7,
-          crossAxisCount: 1,
-          scrollDirection: Axis.vertical,
+          crossAxisCount: 4,
+          crossAxisSpacing: 3.0,
+          mainAxisSpacing: 5.0,
+          //scrollDirection: Axis.vertical,
           children: [
-            ItemCardLayoutGrid(
-              crossAxisCount: 2,
-              // ignore: prefer_const_literals_to_create_immutables
-              items: [
-                const ItemCardData(data: 'test'),
-                const ItemCardData(data: 'test'),
-                const ItemCardData(data: 'test'),
-                const ItemCardData(data: 'test')
-              ],
-            )
+            ItemCard(
+                data: ItemCardData(
+                    creatorName: "Niece",
+                    nbElements: 54,
+                    origin: "OF",
+                    originUrl: "http://www.google.com",
+                    uploadDate: DateTime.parse("2012-02-27"))),
+            ItemCard(
+                data: ItemCardData(
+                    creatorName: "Caprice",
+                    nbElements: 27,
+                    origin: "MYM",
+                    originUrl: "http://www.google.com",
+                    uploadDate: DateTime.parse("2021-04-18"))),
+            ItemCard(
+                data: ItemCardData(
+                    creatorName: "Eva",
+                    nbElements: 98,
+                    origin: "PAT",
+                    originUrl: "http://www.google.com",
+                    uploadDate: DateTime.parse("2019-11-24"))),
+            ItemCard(
+                data: ItemCardData(
+                    creatorName: "Stefani",
+                    nbElements: 52,
+                    origin: "UNC",
+                    originUrl: "http://www.google.com",
+                    uploadDate: DateTime.parse("2017-07-17"))),
+            ItemCard(
+                data: ItemCardData(
+                    creatorName: "Waidhofer",
+                    nbElements: 12,
+                    origin: "OF",
+                    originUrl: "http://www.google.com",
+                    uploadDate: DateTime.parse("2018-11-09"))),
+            ItemCard(
+                data: ItemCardData(
+                    creatorName: "Elfie",
+                    nbElements: 47,
+                    origin: "OF",
+                    originUrl: "http://www.google.com",
+                    uploadDate: DateTime.parse("2018-07-31"))),
+            ItemCard(
+                data: ItemCardData(
+                    creatorName: "Cam",
+                    nbElements: 68,
+                    origin: "OF",
+                    originUrl: "http://www.google.com",
+                    uploadDate: DateTime.parse("2021-02-17"))),
           ],
         ));
   }
