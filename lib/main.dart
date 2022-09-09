@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shareleaks/item_card.dart';
+import 'package:shareleaks/content_card.dart';
 
-import 'item_card_data.dart';
+import 'content_card_data.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,50 +43,50 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisSpacing: 5.0,
           //scrollDirection: Axis.vertical,
           children: [
-            ItemCard(
-                data: ItemCardData(
+            ContentCard(
+                data: ContentCardData(
                     creatorName: "Niece",
                     nbElements: 54,
                     origin: "OF",
                     originUrl: "http://www.google.com",
                     uploadDate: DateTime.parse("2012-02-27"))),
-            ItemCard(
-                data: ItemCardData(
+            ContentCard(
+                data: ContentCardData(
                     creatorName: "Caprice",
                     nbElements: 27,
                     origin: "MYM",
                     originUrl: "http://www.google.com",
                     uploadDate: DateTime.parse("2021-04-18"))),
-            ItemCard(
-                data: ItemCardData(
+            ContentCard(
+                data: ContentCardData(
                     creatorName: "Eva",
                     nbElements: 98,
                     origin: "PAT",
                     originUrl: "http://www.google.com",
                     uploadDate: DateTime.parse("2019-11-24"))),
-            ItemCard(
-                data: ItemCardData(
+            ContentCard(
+                data: ContentCardData(
                     creatorName: "Stefani",
                     nbElements: 52,
                     origin: "UNC",
                     originUrl: "http://www.google.com",
                     uploadDate: DateTime.parse("2017-07-17"))),
-            ItemCard(
-                data: ItemCardData(
+            ContentCard(
+                data: ContentCardData(
                     creatorName: "Waidhofer",
                     nbElements: 12,
                     origin: "OF",
                     originUrl: "http://www.google.com",
                     uploadDate: DateTime.parse("2018-11-09"))),
-            ItemCard(
-                data: ItemCardData(
+            ContentCard(
+                data: ContentCardData(
                     creatorName: "Elfie",
                     nbElements: 47,
                     origin: "OF",
                     originUrl: "http://www.google.com",
                     uploadDate: DateTime.parse("2018-07-31"))),
-            ItemCard(
-                data: ItemCardData(
+            ContentCard(
+                data: ContentCardData(
                     creatorName: "Cam",
                     nbElements: 68,
                     origin: "OF",

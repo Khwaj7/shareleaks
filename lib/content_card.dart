@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'item_card_data.dart';
+import 'content_card_data.dart';
 
 final Uri _url = Uri.parse('https://flutter.dev');
 
 @immutable
-class ItemCard extends StatelessWidget {
-  final ItemCardData data;
+class ContentCard extends StatelessWidget {
+  final ContentCardData data;
 
-  const ItemCard({Key? key, required this.data}) : super(key: key);
+  const ContentCard({Key? key, required this.data}) : super(key: key);
 
   Future<void> _launchUrl() async {
     if (!await launchUrl(Uri.parse(data.originUrl))) {

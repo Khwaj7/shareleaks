@@ -1,4 +1,4 @@
-class ItemCardData {
+class ContentCardData {
   final String creatorName;
   final String origin;
   final String originUrl;
@@ -7,7 +7,7 @@ class ItemCardData {
 
   late String avatar;
 
-  ItemCardData(
+  ContentCardData(
       {required this.creatorName,
       required this.origin,
       required this.originUrl,
