@@ -45,22 +45,28 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisSpacing: 5.0,
           children: [
             CreatorCard(
-                data: CreatorCardData(
-                    creatorName: 'Niece Waidhofer', nbSets: 28)),
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Niece Waidhofer', nbSets: 28, avatar: 'assets/avatars/niece-waidhofer.jpg')),
             CreatorCard(
-                data: CreatorCardData(creatorName: 'Caprice', nbSets: 15)),
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Caprice', nbSets: 15, avatar: 'assets/avatars/caprice.jpg')),
             CreatorCard(
-                data: CreatorCardData(creatorName: 'Eva Elfie', nbSets: 17)),
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Eva Elfie', nbSets: 17, avatar: 'assets/avatars/eva-elfie.jpg')),
             CreatorCard(
-                data:
-                    CreatorCardData(creatorName: 'Stefani Kyler', nbSets: 38)),
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Stefany Kyler', nbSets: 38, avatar: 'assets/avatars/stefany-kyler.jpg')),
             CreatorCard(
-                data: CreatorCardData(creatorName: 'Caprice', nbSets: 15)),
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Marlen Valderrama Alvarez',
+                    nbSets: 15,
+                    avatar: 'assets/avatars/marlen-valderrama-alvarez.jpg')),
             CreatorCard(
-                data: CreatorCardData(creatorName: 'Eva Elfie', nbSets: 17)),
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Amy Jackson', nbSets: 17, avatar: 'assets/avatars/amy-jackson.jpg')),
             CreatorCard(
-                data:
-                    CreatorCardData(creatorName: 'Stefani Kyler', nbSets: 38)),
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Viki Odintcova', nbSets: 38, avatar: 'assets/avatars/viki-odintcova.jpg')),
           ],
         ));
   }
