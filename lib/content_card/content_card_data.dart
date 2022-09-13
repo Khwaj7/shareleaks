@@ -5,8 +5,6 @@ class ContentCardData {
   final double nbElements;
   final DateTime uploadDate;
 
-  late String avatar;
-
   ContentCardData(
       {required this.creatorName,
       required this.origin,

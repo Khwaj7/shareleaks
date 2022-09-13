@@ -28,8 +28,7 @@ class ContentCard extends StatelessWidget {
             title: Text(data.creatorName),
             subtitle: InkWell(
               onTap: _launchUrl,
-              child: Text('source: ${data.origin}',
-                  style: const TextStyle(color: Colors.blue)),
+              child: Text('source: ${data.origin}', style: const TextStyle(color: Colors.blue)),
             ),
           ),
           Padding(
