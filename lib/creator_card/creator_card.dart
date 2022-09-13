@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shareleaks/content_card/content_card.dart';
-import 'package:shareleaks/content_card/content_card_data.dart';
 import 'package:shareleaks/content_card/content_page.dart';
 
 import 'creator_card_data.dart';
@@ -16,12 +13,11 @@ class CreatorCard extends StatelessWidget {
     return Card(
         clipBehavior: Clip.antiAlias,
         child: InkWell(
-          splashColor: Colors.blue.withAlpha(30),
+          splashColor: Colors.blue.withAlpha(255),
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) => ContentPage(title: data.creatorName)),
+              MaterialPageRoute(builder: (context) => ContentPage(title: data.creatorName)),
             );
             debugPrint('${data.creatorName} tapped.');
           },
@@ -31,16 +27,23 @@ class CreatorCard extends StatelessWidget {
                 leading: const Icon(Icons.person_pin),
                 title: Text(
                   data.creatorName,
-                  style: const TextStyle(fontSize: 16.0),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Image.asset('assets/card-sample-image-2.jpg'),
-              ),
+                  padding: const EdgeInsets.only(bottom: 2.0),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.25,
+                    height: MediaQuery.of(context).size.height * 0.25,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.fitHeight,
+                        image: Image.asset(data.avatar).image,
+                      ),
+                    ),
+                  )),
               Row(
                 children: [
-                  const Padding(padding: EdgeInsets.all(8.0)),
+                  const Padding(padding: EdgeInsets.only(left: 12.0)),
                   Text(
                       textAlign: TextAlign.left,
                       '${data.nbSets} elements',
