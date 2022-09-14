@@ -3,8 +3,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'content_card_data.dart';
 
-final Uri _url = Uri.parse('https://flutter.dev');
-
 @immutable
 class ContentCard extends StatelessWidget {
   final ContentCardData data;
@@ -28,7 +26,8 @@ class ContentCard extends StatelessWidget {
             title: Text(data.creatorName),
             subtitle: InkWell(
               onTap: _launchUrl,
-              child: Text('source: ${data.origin}', style: const TextStyle(color: Colors.blue)),
+              child: Text('source: ${data.origin}',
+                  style: const TextStyle(color: Colors.blue)),
             ),
           ),
           Padding(

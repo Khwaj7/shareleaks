@@ -6,10 +6,28 @@ import 'creator_card_data.dart';
 @immutable
 class CreatorCard extends StatelessWidget {
   final CreatorCardData data;
+  List<Widget> originButtons = [];
 
-  const CreatorCard({super.key, required this.data});
+  CreatorCard({super.key, required this.data});
   @override
   Widget build(BuildContext context) {
+    for (final element in data.origins) {
+      originButtons.add(TextButton(
+        child: Text(element),
+        onPressed: () {},
+      ));
+    }
+
+    // MOCK
+    originButtons.add(TextButton(
+      child: const Text("OF"),
+      onPressed: () {},
+    ));
+    originButtons.add(TextButton(
+      child: const Text("MYM"),
+      onPressed: () {},
+    ));
+
     return Card(
         clipBehavior: Clip.antiAlias,
         child: InkWell(
@@ -17,7 +35,11 @@ class CreatorCard extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ContentPage(title: data.creatorName)),
+              MaterialPageRoute(
+                  builder: (context) => ContentPage(
+                        title: data.creatorName,
+                        creator: data,
+                      )),
             );
             debugPrint('${data.creatorName} tapped.');
           },
@@ -58,24 +80,25 @@ class CreatorCard extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    child: const Text('OF'),
-                    onPressed: () {/* ... */},
-                  ),
-                  TextButton(
-                    child: const Text('MYM'),
-                    onPressed: () {/* ... */},
-                  ),
-                  TextButton(
-                    child: const Text('UNC'),
-                    onPressed: () {/* ... */},
-                  ),
-                  //const Padding(padding: EdgeInsets.all(4.0)),
-                ],
+                children: originButtons,
               ),
             ],
           ),
         ));
   }
 }
+/*
+body: GridView.builder(
+        gridDelegate:
+            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+        itemCount: widget.creatorsData.length,
+        itemBuilder: (BuildContext context, index) {
+          String creatorKey = widget.creatorsData.keys.toList()[index];
+          return CreatorCard(
+              data: CreatorCardData.creatorCardDataWithAvatar(
+                  creatorName: widget.creatorsData[creatorKey]["name"],
+                  nbSets: widget.creatorsData[creatorKey]["sets"].length,
+                  avatar: widget.creatorsData[creatorKey]["avatar"]));
+        },
+      ),
+*/
