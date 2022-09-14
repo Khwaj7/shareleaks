@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:shareleaks/creator_card/creator_card_data.dart';
+import 'package:shareleaks/creator_card/creator.dart';
 
 import 'content_card.dart';
 import 'content_card_data.dart';
 
 class ContentPage extends StatefulWidget {
   final String title;
-  final CreatorCardData creator;
+  final Creator creator;
 
   const ContentPage({Key? key, required this.title, required this.creator})
       : super(key: key);

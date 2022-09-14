@@ -7,6 +7,16 @@
         "1": true,
         "2": true,
         "8": true
+      },
+      "links": {
+        "1":{
+            "name":"OF",
+            "url":"http://www.google.com"
+        },
+        "2":{
+            "name":"MYM",
+            "url":"http://www.google.com"
+        }
       }
     },
     "eva-elfie": {
@@ -15,7 +25,16 @@
       "sets": {
         "3": true,
         "4": true
-      }
+      },
+      "links": {
+        "1":{
+            "name":"OF",
+            "url":"http://www.google.com"
+        },
+        "2":{
+            "name":"MYM",
+            "url":"http://www.google.com"
+        }
     },
     "stefany-kyler": {
       "name": "Stefany Kyler",
@@ -23,7 +42,16 @@
       "sets": {
         "5": true,
         "6": true
-      }
+      },
+      "links": {
+        "1":{
+            "name":"OF",
+            "url":"http://www.google.com"
+        },
+        "2":{
+            "name":"MYM",
+            "url":"http://www.google.com"
+        }
     },
     "caprice": {
       "name": "Marketa Stroblova",
@@ -31,7 +59,16 @@
       "sets": {
         "5": true,
         "6": true
-      }
+      },
+      "links": {
+        "1":{
+            "name":"OF",
+            "url":"http://www.google.com"
+        },
+        "2":{
+            "name":"MYM",
+            "url":"http://www.google.com"
+        }
     },
     "viki-odintcova": {
       "name": "Viki Odintcova",
@@ -39,7 +76,16 @@
       "sets": {
         "5": true,
         "6": true
-      }
+      },
+      "links": {
+        "1":{
+            "name":"OF",
+            "url":"http://www.google.com"
+        },
+        "2":{
+            "name":"MYM",
+            "url":"http://www.google.com"
+        }
     }
   },
   "sets": {

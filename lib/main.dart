@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shareleaks/creator_card/creator_card.dart';
-import 'package:shareleaks/creator_card/creator_card_data.dart';
+import 'package:shareleaks/creator_card/creator.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -67,7 +67,8 @@ class _HomePageState extends State<HomePage> {
           String creatorKey = widget.creatorsData.keys.toList()[index];
           print(widget.creatorsData[creatorKey]["sets"]);
           return CreatorCard(
-              data: CreatorCardData.creatorCardDataWithAvatar(
+              data: Creator.creatorWithAvatar(
+                  id: creatorKey,
                   creatorName: widget.creatorsData[creatorKey]["name"],
                   nbSets: widget.creatorsData[creatorKey]["sets"].length,
                   avatar: widget.creatorsData[creatorKey]["avatar"]));

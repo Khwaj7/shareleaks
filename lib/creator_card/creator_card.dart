@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:shareleaks/content_card/content_page.dart';
+import 'package:shareleaks/link.dart';
 
-import 'creator_card_data.dart';
+import 'creator.dart';
 
 @immutable
 class CreatorCard extends StatelessWidget {
-  final CreatorCardData data;
+  final Creator data;
   List<Widget> originButtons = [];
 
   CreatorCard({super.key, required this.data});
   @override
   Widget build(BuildContext context) {
-    for (final element in data.origins) {
+    for (final Link element in data.links) {
       originButtons.add(TextButton(
-        child: Text(element),
-        onPressed: () {},
+        child: Text(element.name),
+        onPressed: () {
+          print("go to ${element.url}");
+        },
       ));
     }
 
