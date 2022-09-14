@@ -28,6 +28,10 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
+  static const bool allowNSFW = false;
+  static const String avatarsFolderConfig =
+      allowNSFW ? 'assets/avatars/' : 'assets/avatars/sfw/';
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -46,27 +50,44 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             CreatorCard(
                 data: CreatorCardData.creatorCardDataWithAvatar(
-                    creatorName: 'Niece Waidhofer', nbSets: 28, avatar: 'assets/avatars/niece-waidhofer.jpg')),
+                    creatorName: 'Niece Waidhofer',
+                    nbSets: 28,
+                    avatar:
+                        '${MyHomePage.avatarsFolderConfig}niece-waidhofer.jpg')),
             CreatorCard(
                 data: CreatorCardData.creatorCardDataWithAvatar(
-                    creatorName: 'Caprice', nbSets: 15, avatar: 'assets/avatars/caprice.jpg')),
+                    creatorName: 'Caprice',
+                    nbSets: 15,
+                    avatar: '${MyHomePage.avatarsFolderConfig}caprice.jpg')),
             CreatorCard(
                 data: CreatorCardData.creatorCardDataWithAvatar(
-                    creatorName: 'Eva Elfie', nbSets: 17, avatar: 'assets/avatars/eva-elfie.jpg')),
+                    creatorName: 'Eva Elfie',
+                    nbSets: 17,
+                    avatar: '${MyHomePage.avatarsFolderConfig}eva-elfie.jpg')),
             CreatorCard(
                 data: CreatorCardData.creatorCardDataWithAvatar(
-                    creatorName: 'Stefany Kyler', nbSets: 38, avatar: 'assets/avatars/stefany-kyler.jpg')),
+                    creatorName: 'Stefany Kyler',
+                    nbSets: 38,
+                    avatar:
+                        '${MyHomePage.avatarsFolderConfig}stefany-kyler.jpg')),
             CreatorCard(
                 data: CreatorCardData.creatorCardDataWithAvatar(
                     creatorName: 'Marlen Valderrama Alvarez',
                     nbSets: 15,
-                    avatar: 'assets/avatars/marlen-valderrama-alvarez.jpg')),
+                    avatar:
+                        '${MyHomePage.avatarsFolderConfig}marlen-valderrama-alvarez.jpg')),
             CreatorCard(
                 data: CreatorCardData.creatorCardDataWithAvatar(
-                    creatorName: 'Amy Jackson', nbSets: 17, avatar: 'assets/avatars/amy-jackson.jpg')),
+                    creatorName: 'Amy Jackson',
+                    nbSets: 17,
+                    avatar:
+                        '${MyHomePage.avatarsFolderConfig}amy-jackson.jpg')),
             CreatorCard(
                 data: CreatorCardData.creatorCardDataWithAvatar(
-                    creatorName: 'Viki Odintcova', nbSets: 38, avatar: 'assets/avatars/viki-odintcova.jpg')),
+                    creatorName: 'Viki Odintcova',
+                    nbSets: 38,
+                    avatar:
+                        '${MyHomePage.avatarsFolderConfig}viki-odintcova.jpg')),
           ],
         ));
   }
