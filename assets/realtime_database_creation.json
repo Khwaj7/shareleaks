@@ -1,0 +1,89 @@
+{
+  "creators": {
+    "niece-waidhofer": {
+      "name": "Niece Waidhofer",
+      "avatar": "assets/avatars/sfw/niece-waidhofer.jpg",
+      "sets": {
+        "1": true,
+        "2": true,
+        "8": true
+      }
+    },
+    "eva-elfie": {
+      "name": "Eva Elfie",
+      "avatar": "assets/avatars/sfw/eva-elfie.jpg",
+      "sets": {
+        "3": true,
+        "4": true
+      }
+    },
+    "stefany-kyler": {
+      "name": "Stefany Kyler",
+      "avatar": "assets/avatars/sfw/stefany-kyler.jpg",
+      "sets": {
+        "5": true,
+        "6": true
+      }
+    },
+    "caprice": {
+      "name": "Marketa Stroblova",
+      "avatar": "assets/avatars/sfw/caprice.jpg",
+      "sets": {
+        "5": true,
+        "6": true
+      }
+    },
+    "viki-odintcova": {
+      "name": "Viki Odintcova",
+      "avatar": "assets/avatars/sfw/viki-odintcova.jpg",
+      "sets": {
+        "5": true,
+        "6": true
+      }
+    }
+  },
+  "sets": {
+    "1": {
+      "name": "Near fire",
+      "url": "assets/sets/1/",
+      "nbElements": "15",
+      "origin": "OF",
+      "pictures": {
+        "1": {
+          "url": "assets/sets/1/pic1.jpg"
+        }
+      }
+    },
+    "2": {
+      "name": "Boudoir",
+      "url": "assets/sets/2/",
+      "nbElements": "41",
+      "origin": "MYM",
+      "pictures": {
+        "1": {
+          "url": "assets/sets/2/pic1.jpg"
+        },
+        "2": {
+          "url": "assets/sets/2/pic2.jpg"
+        }
+      }
+    },
+    "3": {
+      "name": "In the car",
+      "url": "assets/sets/3/",
+      "nbElements": "23",
+      "origin": "PAT",
+      "pictures": {
+        "1": {
+          "url": "assets/sets/3/pic1.jpg"
+        },
+        "2": {
+          "url": "assets/sets/3/pic2.jpg"
+        },
+        "3": {
+          "url": "assets/sets/3/pic2.jpg"
+        }
+      }
+    }
+  }
+}
