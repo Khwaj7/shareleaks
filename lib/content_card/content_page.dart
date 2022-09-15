@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shareleaks/content_card/set.dart';
 import 'package:shareleaks/creator_card/creator.dart';
 
 import 'content_card.dart';
@@ -8,7 +9,7 @@ class ContentPage extends StatefulWidget {
   final String title;
   final Creator creator;
 
-  const ContentPage({Key? key, required this.title, required this.creator})
+  ContentPage({Key? key, required this.title, required this.creator})
       : super(key: key);
   @override
   State<StatefulWidget> createState() => _ContentPageState();
@@ -17,6 +18,7 @@ class ContentPage extends StatefulWidget {
 class _ContentPageState extends State<ContentPage> {
   @override
   Widget build(BuildContext context) {
+    List<Set> sets = Set.getSetsFromCreator(widget.creator);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
