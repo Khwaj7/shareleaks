@@ -1,14 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:shareleaks/creator_card/creator_card.dart';
+import 'package:shareleaks/creator_card/creator.dart';
 
-import 'item_card_data.dart';
-import 'item_card_layout_grid.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:shareleaks/link.dart';
+import 'firebase_options.dart';
+import 'package:firebase_database/firebase_database.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  DatabaseReference ref = FirebaseDatabase.instance.ref('creators/');
+  ref.onValue.listen((DatabaseEvent event) {
+    final creators = event.snapshot.value;
+    runApp(MyApp(
+      creatorsData: creators,
+    ));
+  });
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  var creatorsData;
+  MyApp({Key? key, required this.creatorsData}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,43 +30,111 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Shareleaks'),
+      home: HomePage(
+        title: 'Shareleaks',
+        creatorsData: creatorsData,
+      ),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key, required this.title, required this.creatorsData})
+      : super(key: key);
 
   final String title;
+  final creatorsData;
+
+  static const bool allowNSFW = false;
+  static const String avatarsFolderConfig =
+      allowNSFW ? 'assets/avatars/' : 'assets/avatars/sfw/';
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: GridView.count(
-          childAspectRatio: .7,
-          crossAxisCount: 1,
-          scrollDirection: Axis.vertical,
-          children: [
-            ItemCardLayoutGrid(
-              crossAxisCount: 2,
-              // ignore: prefer_const_literals_to_create_immutables
-              items: [
-                const ItemCardData(data: 'test'),
-                const ItemCardData(data: 'test'),
-                const ItemCardData(data: 'test'),
-                const ItemCardData(data: 'test')
-              ],
-            )
-          ],
-        ));
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: GridView.builder(
+        gridDelegate:
+            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+        itemCount: widget.creatorsData.length,
+        itemBuilder: (BuildContext context, index) {
+          String creatorKey = widget.creatorsData.keys.toList()[index];
+          List<Link> links = getLinks(widget.creatorsData[creatorKey]["links"]);
+          return CreatorCard(
+              data: Creator.creatorWithAvatar(
+                  id: creatorKey,
+                  creatorName: widget.creatorsData[creatorKey]["name"],
+                  nbSets: widget.creatorsData[creatorKey]["sets"].length,
+                  avatar: widget.creatorsData[creatorKey]["avatar"],
+                  links: links));
+        },
+      ),
+    );
+  }
+
+  List<Link> getLinks(List<dynamic> links) {
+    List<Link> linksList = [];
+    for (final aLink in links) {
+      if (aLink != null) {
+        linksList.add(Link(name: aLink['name'], url: aLink['url']));
+      }
+    }
+    return linksList;
   }
 }
+
+/*
+GridView.count(
+          crossAxisCount: 4,
+          crossAxisSpacing: 3.0,
+          mainAxisSpacing: 5.0,
+          children: [
+            CreatorCard(
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Niece Waidhofer',
+                    nbSets: 28,
+                    avatar:
+                        '${HomePage.avatarsFolderConfig}niece-waidhofer.jpg')),
+            CreatorCard(
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Caprice',
+                    nbSets: 15,
+                    avatar: '${HomePage.avatarsFolderConfig}caprice.jpg')),
+            CreatorCard(
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Eva Elfie',
+                    nbSets: 17,
+                    avatar: '${HomePage.avatarsFolderConfig}eva-elfie.jpg')),
+            CreatorCard(
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Stefany Kyler',
+                    nbSets: 38,
+                    avatar:
+                        '${HomePage.avatarsFolderConfig}stefany-kyler.jpg')),
+            CreatorCard(
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Marlen Valderrama Alvarez',
+                    nbSets: 15,
+                    avatar:
+                        '${HomePage.avatarsFolderConfig}marlen-valderrama-alvarez.jpg')),
+            CreatorCard(
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Amy Jackson',
+                    nbSets: 17,
+                    avatar: '${HomePage.avatarsFolderConfig}amy-jackson.jpg')),
+            CreatorCard(
+                data: CreatorCardData.creatorCardDataWithAvatar(
+                    creatorName: 'Viki Odintcova',
+                    nbSets: 38,
+                    avatar:
+                        '${HomePage.avatarsFolderConfig}viki-odintcova.jpg')),
+          ],
+        ))
+*/

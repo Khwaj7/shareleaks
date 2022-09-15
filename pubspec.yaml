@@ -37,11 +37,16 @@ dependencies:
 
   flutter_layout_grid: ^1.0.3
   bitsdojo_window: ^0.1.4
+  url_launcher: ^6.1.5
+  firebase_core: ^1.22.0
+  firebase_database: ^9.1.4
+  json_annotation: ^4.6.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  json_serializable: ^6.3.2
+  build_runner: ^2.2.1
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -67,6 +72,8 @@ flutter:
 
   assets:
       - assets/
+      - assets/avatars/
+      - assets/avatars/sfw/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
