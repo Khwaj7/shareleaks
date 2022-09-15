@@ -13,6 +13,10 @@ class CreatorCard extends StatelessWidget {
   CreatorCard({super.key, required this.data});
   @override
   Widget build(BuildContext context) {
+    // clear links if not empty in case of resizing window
+    if (originButtons.isNotEmpty) {
+      originButtons.clear();
+    }
     for (final Link element in data.links) {
       originButtons.add(TextButton(
         child: Text(element.name),
