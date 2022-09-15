@@ -1,11 +1,10 @@
-import 'package:firebase_database/firebase_database.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:shareleaks/link.dart';
 
 part 'creator.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Creator {
   @JsonKey(name: 'id')
   final String id;
@@ -47,9 +46,6 @@ class Creator {
       required this.avatar}) {
     lastUpdated = DateTime.now();
     sets = [];
-
-    // TODO : alimenter origins avec les sources de chaque set du créateur en cours
-    DatabaseReference ref = FirebaseDatabase.instance.ref("creators/");
   }
 
   Creator.creatorComplete(
@@ -59,5 +55,5 @@ class Creator {
       required this.avatar,
       required this.lastUpdated,
       required this.links,
-      required this.sets}) {}
+      required this.sets});
 }
