@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shareleaks/content_card/content_page.dart';
 import 'package:shareleaks/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'creator.dart';
 
@@ -15,21 +16,17 @@ class CreatorCard extends StatelessWidget {
     for (final Link element in data.links) {
       originButtons.add(TextButton(
         child: Text(element.name),
-        onPressed: () {
-          print("go to ${element.url}");
+        onPressed: () async {
+          // go to link
+          if (await canLaunchUrl(Uri.parse(element.url))) {
+            await launchUrl(Uri.parse(element.url));
+          } else {
+            // can't launch url
+            debugPrint('ERROR - Can\'t launch URL ${element.url}');
+          }
         },
       ));
     }
-
-    // MOCK
-    originButtons.add(TextButton(
-      child: const Text("OF"),
-      onPressed: () {},
-    ));
-    originButtons.add(TextButton(
-      child: const Text("MYM"),
-      onPressed: () {},
-    ));
 
     return Card(
         clipBehavior: Clip.antiAlias,

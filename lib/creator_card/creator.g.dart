@@ -22,7 +22,7 @@ Map<String, dynamic> _$CreatorToJson(Creator instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.creatorName,
       'nbSets': instance.nbSets,
-      'links': instance.links,
+      'links': instance.links.map((e) => e.toJson()).toList(),
       'sets': instance.sets,
       'lastUpdated': instance.lastUpdated.toIso8601String(),
       'avatar': instance.avatar,

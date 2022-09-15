@@ -3,6 +3,7 @@ import 'package:shareleaks/creator_card/creator_card.dart';
 import 'package:shareleaks/creator_card/creator.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:shareleaks/link.dart';
 import 'firebase_options.dart';
 import 'package:firebase_database/firebase_database.dart';
 
@@ -65,16 +66,27 @@ class _HomePageState extends State<HomePage> {
         itemCount: widget.creatorsData.length,
         itemBuilder: (BuildContext context, index) {
           String creatorKey = widget.creatorsData.keys.toList()[index];
-          print(widget.creatorsData[creatorKey]["sets"]);
+          List<Link> links = getLinks(widget.creatorsData[creatorKey]["links"]);
           return CreatorCard(
               data: Creator.creatorWithAvatar(
                   id: creatorKey,
                   creatorName: widget.creatorsData[creatorKey]["name"],
                   nbSets: widget.creatorsData[creatorKey]["sets"].length,
-                  avatar: widget.creatorsData[creatorKey]["avatar"]));
+                  avatar: widget.creatorsData[creatorKey]["avatar"],
+                  links: links));
         },
       ),
     );
+  }
+
+  List<Link> getLinks(List<dynamic> links) {
+    List<Link> linksList = [];
+    for (final aLink in links) {
+      if (aLink != null) {
+        linksList.add(Link(name: aLink['name'], url: aLink['url']));
+      }
+    }
+    return linksList;
   }
 }
 

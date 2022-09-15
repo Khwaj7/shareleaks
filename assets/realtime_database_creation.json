@@ -9,13 +9,13 @@
         "8": true
       },
       "links": {
-        "1":{
-            "name":"OF",
-            "url":"http://www.google.com"
+        "1": {
+          "name": "OF",
+          "url": "http://www.google.com"
         },
-        "2":{
-            "name":"MYM",
-            "url":"http://www.google.com"
+        "2": {
+          "name": "MYM",
+          "url": "http://www.google.com"
         }
       }
     },
@@ -27,14 +27,15 @@
         "4": true
       },
       "links": {
-        "1":{
-            "name":"OF",
-            "url":"http://www.google.com"
+        "1": {
+          "name": "OF",
+          "url": "http://www.google.com"
         },
-        "2":{
-            "name":"MYM",
-            "url":"http://www.google.com"
+        "2": {
+          "name": "MYM",
+          "url": "http://www.google.com"
         }
+      }
     },
     "stefany-kyler": {
       "name": "Stefany Kyler",
@@ -44,14 +45,15 @@
         "6": true
       },
       "links": {
-        "1":{
-            "name":"OF",
-            "url":"http://www.google.com"
+        "1": {
+          "name": "OF",
+          "url": "http://www.google.com"
         },
-        "2":{
-            "name":"MYM",
-            "url":"http://www.google.com"
+        "2": {
+          "name": "MYM",
+          "url": "http://www.google.com"
         }
+      }
     },
     "caprice": {
       "name": "Marketa Stroblova",
@@ -61,14 +63,15 @@
         "6": true
       },
       "links": {
-        "1":{
-            "name":"OF",
-            "url":"http://www.google.com"
+        "1": {
+          "name": "OF",
+          "url": "http://www.google.com"
         },
-        "2":{
-            "name":"MYM",
-            "url":"http://www.google.com"
+        "2": {
+          "name": "MYM",
+          "url": "http://www.google.com"
         }
+      }
     },
     "viki-odintcova": {
       "name": "Viki Odintcova",
@@ -78,14 +81,15 @@
         "6": true
       },
       "links": {
-        "1":{
-            "name":"OF",
-            "url":"http://www.google.com"
+        "1": {
+          "name": "OF",
+          "url": "http://www.google.com"
         },
-        "2":{
-            "name":"MYM",
-            "url":"http://www.google.com"
+        "2": {
+          "name": "MYM",
+          "url": "http://www.google.com"
         }
+      }
     }
   },
   "sets": {
