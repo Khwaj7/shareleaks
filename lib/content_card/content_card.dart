@@ -32,7 +32,7 @@ class ContentCard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Image.asset('assets/card-sample-image-2.jpg'),
+            // child: Image.asset('assets/card-sample-image-2.jpg'),
           ),
           Row(
             children: [

@@ -45,7 +45,8 @@ class CreatorCard extends StatelessWidget {
                         creator: data,
                       )),
             );
-            debugPrint('${data.creatorName} tapped.');
+            debugPrint(
+                '${data.creatorName} tapped. Sets : ${data.nbSets} / ${data.sets.length}');
           },
           child: Column(
             children: [

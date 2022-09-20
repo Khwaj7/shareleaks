@@ -68,12 +68,14 @@ class _HomePageState extends State<HomePage> {
           String creatorKey = widget.creatorsData.keys.toList()[index];
           List<Link> links = getLinks(widget.creatorsData[creatorKey]["links"]);
           return CreatorCard(
-              data: Creator.creatorWithAvatar(
+              data: Creator.creatorComplete(
                   id: creatorKey,
                   creatorName: widget.creatorsData[creatorKey]["name"],
                   nbSets: widget.creatorsData[creatorKey]["sets"].length,
                   avatar: widget.creatorsData[creatorKey]["avatar"],
-                  links: links));
+                  links: links,
+                  lastUpdated: DateTime.now(),
+                  sets: widget.creatorsData[creatorKey]["sets"]));
         },
       ),
     );

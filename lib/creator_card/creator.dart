@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:shareleaks/content_card/set.dart';
 
 import 'package:shareleaks/link.dart';
 
@@ -17,7 +18,9 @@ class Creator {
   final List<Link> links;
 
   // list of IDs of the creator's sets
-  late List<String> sets;
+  @JsonKey(name: 'sets')
+  final dynamic sets;
+
   late DateTime lastUpdated;
   late String avatar;
 
@@ -30,6 +33,12 @@ class Creator {
 
   // never used
   Creator(
+      {required this.id,
+      required this.creatorName,
+      required this.nbSets,
+      required this.links,
+      required this.sets});
+  /*Creator(
       {required this.id,
       required this.creatorName,
       required this.nbSets,
@@ -46,7 +55,7 @@ class Creator {
       required this.avatar}) {
     lastUpdated = DateTime.now();
     sets = [];
-  }
+  }*/
 
   Creator.creatorComplete(
       {required this.id,

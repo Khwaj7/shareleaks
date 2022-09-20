@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:firebase_database/firebase_database.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:shareleaks/content_card/picture.dart';
@@ -29,17 +27,15 @@ class Set {
       required this.origin,
       required this.pictures});
 
-  static List<Set> getSetsFromCreator(Creator creator) {
-    List<Set> sets = [];
-    var setIds;
+  static dynamic getSetsFromCreator(Creator creator) async {
+    dynamic sets;
+    print("ref : " 'creators/${creator.id}/sets/');
     DatabaseReference ref =
-        FirebaseDatabase.instance.ref('creators/${creator.id}/sets/');
+        await FirebaseDatabase.instance.ref('creators/${creator.id}/sets/');
     ref.onValue.listen((DatabaseEvent event) {
-      var idsList = event.snapshot.value;
-      setIds = idsList.keys.toList();
+      sets = event.snapshot.value;
+      return sets;
     });
-
-    return sets;
   }
 
   // DATA PERSISTANCE

@@ -1,5 +1,5 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:shareleaks/content_card/set.dart';
 import 'package:shareleaks/creator_card/creator.dart';
 
 import 'content_card.dart';
@@ -16,9 +16,21 @@ class ContentPage extends StatefulWidget {
 }
 
 class _ContentPageState extends State<ContentPage> {
+  static List<Set> getSetsFromCreator(List<int> sets) {
+    dynamic sets;
+    DatabaseReference ref = FirebaseDatabase.instance.ref('sets/${sets[0]}');
+    ref.onValue.listen((DatabaseEvent event) {
+      print(event.snapshot.value);
+      sets = event.snapshot.value;
+    });
+    return sets;
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<Set> sets = Set.getSetsFromCreator(widget.creator);
+    dynamic sets = widget.creator.sets;
+    print("sets : $sets");
+    getSetsFromCreator([1]);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),

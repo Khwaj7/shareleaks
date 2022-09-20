@@ -13,8 +13,8 @@ Creator _$CreatorFromJson(Map<String, dynamic> json) => Creator(
       links: (json['links'] as List<dynamic>)
           .map((e) => Link.fromJson(e as Map<String, dynamic>))
           .toList(),
+      sets: json['sets'],
     )
-      ..sets = (json['sets'] as List<dynamic>).map((e) => e as String).toList()
       ..lastUpdated = DateTime.parse(json['lastUpdated'] as String)
       ..avatar = json['avatar'] as String;
 
