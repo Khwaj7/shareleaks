@@ -1,9 +1,11 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:shareleaks/backend/sets_database.dart';
+import 'package:shareleaks/content_card/content_card.dart';
+import 'package:shareleaks/content_card/content_card_data.dart';
+import 'package:shareleaks/content_card/set.dart';
 import 'package:shareleaks/creator_card/creator.dart';
-
-import 'content_card.dart';
-import 'content_card_data.dart';
 
 class ContentPage extends StatefulWidget {
   final String title;
@@ -16,26 +18,60 @@ class ContentPage extends StatefulWidget {
 }
 
 class _ContentPageState extends State<ContentPage> {
-  static List<Set> getSetsFromCreator(List<int> sets) {
-    dynamic sets;
-    DatabaseReference ref = FirebaseDatabase.instance.ref('sets/${sets[0]}');
-    ref.onValue.listen((DatabaseEvent event) {
-      print(event.snapshot.value);
-      sets = event.snapshot.value;
+  late List<Set> creatorSets;
+
+  void getCreatorSets() {
+    DatabaseReference ref = FirebaseDatabase.instance.ref('sets/');
+    ref.onValue.listen((event) {
+      for (final child in event.snapshot.children) {
+        print(child.value);
+      }
     });
-    return sets;
   }
 
   @override
   Widget build(BuildContext context) {
-    dynamic sets = widget.creator.sets;
-    print("sets : $sets");
-    getSetsFromCreator([1]);
+    getCreatorSets();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: GridView.count(
+      /*body: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4),
+          itemCount: 1,
+          itemBuilder: (BuildContext context, index) {
+            return ContentCard(
+              data: ContentCardData(
+                  creatorName: widget.creator.creatorName,
+                  nbElements: creatorSets[index].nbElements,
+                  origin: creatorSets[index].origin,
+                  originUrl: creatorSets[index].url,
+                  uploadDate: DateTime.now()),
+            );
+          },
+        ),*/
+    );
+  }
+}
+
+        /*GridView.builder(
+        gridDelegate:
+            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+        itemCount: creatorSets.length,
+        itemBuilder: (BuildContext context, index) {
+          return ContentCard(
+            data: ContentCardData(
+                creatorName: widget.creator.creatorName,
+                nbElements: creatorSets[index].nbElements,
+                origin: creatorSets[index].origin,
+                originUrl: creatorSets[index].url,
+                uploadDate: DateTime.now()),
+          );
+        },
+      ),*/
+
+        /*GridView.count(
         crossAxisCount: 4,
         crossAxisSpacing: 3.0,
         mainAxisSpacing: 5.0,
@@ -90,7 +126,4 @@ class _ContentPageState extends State<ContentPage> {
                   originUrl: "http://www.google.com",
                   uploadDate: DateTime.parse("2021-02-17"))),
         ],
-      ),
-    );
-  }
-}
+      ),*/

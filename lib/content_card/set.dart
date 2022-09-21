@@ -27,13 +27,20 @@ class Set {
       required this.origin,
       required this.pictures});
 
-  static dynamic getSetsFromCreator(Creator creator) async {
+  static dynamic getSetsFromCreator(Creator? creator) async {
     dynamic sets;
-    print("ref : " 'creators/${creator.id}/sets/');
+    String creatorid;
+    if (creator == null || creator.id == null) {
+      creatorid = 'caprice';
+    } else {
+      creatorid = creator.id;
+    }
+    print("ref : " 'creators/${creatorid}/sets/');
     DatabaseReference ref =
-        await FirebaseDatabase.instance.ref('creators/${creator.id}/sets/');
+        await FirebaseDatabase.instance.ref('creators/${creatorid}/sets/');
     ref.onValue.listen((DatabaseEvent event) {
       sets = event.snapshot.value;
+      print('sets set : $sets');
       return sets;
     });
   }
